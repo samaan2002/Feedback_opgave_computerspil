@@ -21,6 +21,8 @@ public class GameSystem {
 
             games[gameCount] = game;
             gameCount++;
+        } else {
+            System.out.println("\nDer er ikke plads til flere spil, der er kun 5 pladser. ");
         }
     }
 
@@ -30,6 +32,8 @@ public class GameSystem {
 
             players[playerCount] = player;
             playerCount++;
+        } else {
+            System.out.println("\nDer er ikke plads til flere spiller, der er kun 5 pladser. ");
         }
     }
 
@@ -47,14 +51,14 @@ public class GameSystem {
 
     public void updatePlayerScore(int playerId, double newScore) {
 
-        for (int i = 0; i < playerCount; i++) {
+        Player player = findPlayerById(playerId);
 
-            if (players[i].getPlayerId() == playerId) {
+        if (player != null) {
 
-                players[i].updateScore(newScore);
-                System.out.println("Den nye version efter update: ");
-            }
+            player.updateScore(newScore);
+            System.out.println("Den nye version efter update: ");
         }
+
     }
 
     public Game findGameById(int gameid) {
@@ -67,7 +71,7 @@ public class GameSystem {
         return null;
     }
 
-    public Player findPlayerByid(int playerid) {
+    public Player findPlayerById(int playerid) {
 
         for (int i = 0; i < playerCount; i++) {
 

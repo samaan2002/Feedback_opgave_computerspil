@@ -18,20 +18,8 @@ public class Game {
         return gameId;
     }
 
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getGenre() {
-        return genre;
     }
 
     public void setGenre(String genre) {
@@ -43,7 +31,9 @@ public class Game {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price >= 0) {
+            this.price = price;
+        }
     }
 
     public void displayDetails() {
@@ -56,6 +46,4 @@ public class Game {
                 " Genre: " + genre + "\t" +
                 " Title: " + title;
     }
-
-
 }

@@ -6,7 +6,7 @@ public class Player {
     private double score;
 
     //Konstruktør:
-    public Player(int playerId, String name, int age, double score){
+    public Player(int playerId, String name, int age, double score) {
 
         this.playerId = playerId;
         this.name = name;
@@ -18,10 +18,6 @@ public class Player {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
-    }
-
     public String getName() {
         return name;
     }
@@ -30,25 +26,23 @@ public class Player {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0) {
+            System.out.println(getName() + " fik ændrede sin alder.😎");
+            this.age = age;
+        } else {
+            System.out.println("Beklager, men man må ikke have negativ alder.😊");
+        }
     }
 
     public double getScore() {
         return score;
     }
 
-    public void setScore(double score) {
-        this.score = score;
-    }
-
-    public void displayDetails(){
+    public void displayDetails() {
         System.out.println(this);
     }
+
     public String toString() {
         return "Player ID: " + playerId + "\t" +
                 " Name: " + name + " \t" +
@@ -56,7 +50,7 @@ public class Player {
                 " Score: " + score;
     }
 
-    public void updateScore(double newScore){
+    public void updateScore(double newScore) {
         score = newScore;
     }
 }

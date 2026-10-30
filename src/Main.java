@@ -32,6 +32,10 @@ public void allGames(GameSystem system) {
     system.addGame(spil4);
     system.addGame(spil5);
 
+    //Prøver at tilføje en ekstra spil:
+    Game spil6 = new Game(6,"PES","Sport",499.95);
+    system.addGame(spil6);
+
     //Udskriv alle spil:
     system.displayAllGames();
     System.out.println("\n");
@@ -46,7 +50,7 @@ public void allGames(GameSystem system) {
     //Ændring på genre spil nr. 2:
     System.out.println("Ændre genre på spil nr. 2");
     system.findGameById(2);
-    spil3.setGenre("Thriller");
+    spil2.setGenre("Thrill.");
     system.displayAllGames();
     System.out.println("\n");
 
@@ -68,15 +72,23 @@ public void allPlayer(GameSystem system) {
     system.addPlayer(spiller4);
     system.addPlayer(spiller5);
 
+    //Prøver at tilføje en ekstra spil:
+    Player spiller6 = new Player(6,"Atta",29,991);
+    system.addPlayer(spiller6);
+
     //Udskriv alle spiller:
     System.out.println("Den gamle list:");
     system.displayAllPlayer();
 
     //Ændring på listen:
+    //Navn.
     System.out.println("\nÆndring på navn:");
     spiller2.setName("Liwa");
     system.displayAllPlayer();
-
+    //Alder.
+    System.out.println("\nÆndring på alder: ");
+    spiller1.setAge(19);
+    system.displayAllPlayer();
 }
 
 public void gameFound(GameSystem system) {
@@ -87,6 +99,8 @@ public void gameFound(GameSystem system) {
     if (fundetSpil != null) { //if for sikkerhedskontrol:
         System.out.println("\nDen fundet spil er: ");
         fundetSpil.displayDetails();
+    } else {
+        System.out.println("\nDer blev ikke fundet spil: ");
     }
 
 }
@@ -94,11 +108,13 @@ public void gameFound(GameSystem system) {
 public void playerFound(GameSystem system) {
 
     //Find spiller:
-    Player fundetPlayer = system.findPlayerByid(2);
+    Player fundetPlayer = system.findPlayerById(2);
 
     if (fundetPlayer != null) {
         System.out.println("\nSpilleren er fundet: ");
         System.out.println(fundetPlayer);
+    } else {
+        System.out.println("\nSpilleren er ikke fundet:");
     }
 
 }
@@ -132,6 +148,6 @@ public void update(GameSystem system) {
 public void revenue(GameSystem system) {
 
     //Den samlede indtjening fra alle solgte spil:
-    System.out.println("\nDen totalRevenue er: " + system.calculateTotalRevenue());
+    System.out.println("\nDen registrerede værdi af alle spil: " + system.calculateTotalRevenue());
 
 }
